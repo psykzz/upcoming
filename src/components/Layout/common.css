@@ -1,0 +1,28 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap);
+:root {
+  --dark-bg-color: #333;
+  --dark-text-color: #f7f5eb;
+
+  --light-bg-color: #f7f5eb;
+  --light-text-color: #333;
+
+  --text-color-white: #fff;
+  --text-color-subtle: #999;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", Arial, sans-serif;
+  color: var(--light-text-color);
+  background: var(--light-bg-color);
+}
+
+body.dark {
+  color: var(--dark-text-color);
+  background: var(--dark-bg-color);
+}
