@@ -18,7 +18,7 @@ const Upcoming = ({ link, title, cover, releaseDate }) => {
       <img src={cover} alt={title} />
       <div className={styles.detail}>
         <h3>{title}</h3>
-        <span>{moment(releaseDate).fromNow()}</span>
+        <span>{moment(releaseDate, "YYYY/MM/DD").fromNow()}</span>
       </div>
     </div>
   )
@@ -29,10 +29,11 @@ export default function Page() {
     allMarkdownRemark: { nodes },
   } = useStaticQuery(graphql`
     query UpcomingList {
-      allMarkdownRemark {
+      allMarkdownRemark(
+        sort: { order: ASC, fields: frontmatter___releaseDate }
+      ) {
         nodes {
           data: frontmatter {
-            slug
             title
             cover
             releaseDate
@@ -49,7 +50,7 @@ export default function Page() {
         <subtle>Ordered by time to release...</subtle>
 
         {nodes.map(({ data }) => (
-          <Upcoming {...data} />
+          <Upcoming key={data.title} {...data} />
         ))}
       </div>
     </Layout>
