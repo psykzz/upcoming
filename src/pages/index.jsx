@@ -36,6 +36,7 @@ export default function Page() {
           data: frontmatter {
             title
             cover
+            link
             releaseDate
           }
         }
