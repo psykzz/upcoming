@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import moment from "moment"
 import Layout from "../components/Layout"
 
-import * as styles from "./upcoming.module.css"
+import * as styles from "./index.module.css"
 
 const Upcoming = ({ link, title, cover, releaseDate }) => {
   const gotoLink = () => {
